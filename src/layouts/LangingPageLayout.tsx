@@ -1,5 +1,5 @@
-import Footer from "components/default/Footer";
 import LandingPageNav from 'components/default/Navbar';
+import CTAFooter from 'components/default/CTAFooter';
 import { ReactNode, useEffect } from "react";
 import styled from "styled-components";
 // @ts-ignore
@@ -23,7 +23,7 @@ export default function LandingPageLayout({ children }: { children: ReactNode })
                 <main>
                     {children}
                 </main>
-                {<Footer />}
+                <CTAFooter />
             </ScrollToTop>
         </Container>
     )
