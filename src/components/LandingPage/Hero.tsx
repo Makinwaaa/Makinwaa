@@ -130,7 +130,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.9 }}
                     className="text-lg md:text-xl lg:text-2xl text-gray-400 font-light mb-10 leading-relaxed"
                 >
-                    Product Designer & Web Designer
+                    Product Designer
                 </motion.h2>
 
                 {/* Info Bar */}
@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
                 >
                     <div className="flex items-center gap-2">
                         <IoTimeOutline className="text-lg text-white/40" />
-                        <span>4+ Years of Experience</span>
+                        <span>5+ Years of Experience</span>
                     </div>
                     <span className="hidden md:block w-1.5 h-1.5 bg-gray-700 rounded-full"></span>
                     <div className="flex items-center gap-2">

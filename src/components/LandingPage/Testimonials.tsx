@@ -5,45 +5,45 @@ import { IoStar } from 'react-icons/io5';
 const testimonials = [
     {
         id: 1,
-        name: "Sarah Jenkins",
-        role: "CEO at TechFlow",
-        image: "https://randomuser.me/api/portraits/women/44.jpg",
-        content: "Makinwaa transformed our product vision into a tangible, user-friendly reality. The attention to detail and user-centric approach is unmatched."
+        name: "Macaulay Uzu",
+        role: "FrontEnd Lead, Hydrogen",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Macaulay&backgroundColor=b6e3f4",
+        content: "Collaborating with Makinwaa was effortless. He integrated seamlessly with our development team, making the handoff and implementation process incredibly smooth."
     },
     {
         id: 2,
-        name: "David Chen",
-        role: "Founder, GreenSpace",
-        image: "https://randomuser.me/api/portraits/men/32.jpg",
-        content: "An absolute professional. The new design system helped us scale our development velocity by 40% within the first quarter."
+        name: "Aduragbemi Gagher",
+        role: "Product Manager, DokRx",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Aduragbemi&backgroundColor=c0aede",
+        content: "Makinwaa delivered an exceptional design for our Healthtech platform. He truly grasped our user needs and translated them into a highly effective interface."
     },
     {
         id: 3,
-        name: "Emily Rodriguez",
-        role: "Product Manager, Stripe",
-        image: "https://randomuser.me/api/portraits/women/68.jpg",
-        content: "Best designer I've worked with. Understands both the creative and technical constraints of building modern software."
+        name: "Eriadura Odunlami",
+        role: "CEO, Prejamb",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Eriadura&backgroundColor=ffdfbf",
+        content: "He designed a beautiful educational platform for us. His work ethic is fantastic, and it was a pleasure collaborating to bring our vision to life."
     },
     {
         id: 4,
-        name: "Michael Ross",
-        role: "CTO, Nexus Corp",
-        image: "https://randomuser.me/api/portraits/men/86.jpg",
-        content: "We needed a complete brand overhaul and Makinwaa delivered beyond our expectations. Our customer engagement has doubled."
+        name: "OluwaRotimi",
+        role: "CTO, Hydrogen HR",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Rotimi&backgroundColor=d1d4f9",
+        content: "Makinwaa is a standout talent. His ability to combine aesthetic appeal with functional design principles significantly elevated our product's quality."
     },
     {
         id: 5,
-        name: "Jessica Lee",
-        role: "Marketing Director",
-        image: "https://randomuser.me/api/portraits/women/12.jpg",
-        content: "The landing page conversion rate jumped by 200% after the redesign. The results speak for themselves. Highly recommended."
+        name: "Ayomide Ishola",
+        role: "FrontEnd Lead, Octacode",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Ayomide&backgroundColor=ffd5dc",
+        content: "One of the easiest designers I've ever worked with. His designs are developer-friendly, and his communication makes the entire process efficient."
     },
     {
         id: 6,
-        name: "Thomas Wright",
-        role: "VP of Product, Linear",
-        image: "https://randomuser.me/api/portraits/men/67.jpg",
-        content: "Exceptional quality and speed. Makinwaa has a rare ability to solve complex UX problems with simple, elegant interfaces."
+        name: "Amusan Oluwatoni",
+        role: "Founder, Bowentechhub",
+        image: "https://api.dicebear.com/9.x/micah/svg?seed=Amusan&backgroundColor=c0aede",
+        content: "A highly skilled professional who consistently delivers. Working with Makinwaa was a great experience, and the final results exceeded our expectations."
     }
 ];
 

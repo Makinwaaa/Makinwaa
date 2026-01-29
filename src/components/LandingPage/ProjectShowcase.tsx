@@ -149,9 +149,9 @@ const ProjectShowcase: React.FC = () => {
                     ambitious teams to deliver measurable outcomes.
                 </p>
 
-                <button className="bg-[#1A5CFF] hover:bg-[#0047FF] text-white text-sm font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(26,92,255,0.3)] hover:shadow-[0_0_30px_rgba(26,92,255,0.5)]">
+                <a href="/contact" className="bg-[#1A5CFF] hover:bg-[#0047FF] text-white text-sm font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(26,92,255,0.3)] hover:shadow-[0_0_30px_rgba(26,92,255,0.5)]">
                     Book a 15-min call
-                </button>
+                </a>
             </div>
 
             {/* Scrolling Carousel - Auto Scroll */}

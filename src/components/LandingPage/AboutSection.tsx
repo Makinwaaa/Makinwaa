@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IoArrowForward, IoLogoFigma, IoLogoReact, IoLogoCss3 } from 'react-icons/io5';
-import { SiAdobexd, SiFramer } from 'react-icons/si';
+import { IoArrowForward, IoLogoFigma } from 'react-icons/io5';
+import { SiCanva } from 'react-icons/si';
+
+const MakImage = require('./Asset/Mak.jpeg');
 
 const AboutSection: React.FC = () => {
     return (
@@ -38,7 +40,7 @@ const AboutSection: React.FC = () => {
                     >
                         <div className="relative h-full min-h-[400px] rounded-[2rem] overflow-hidden border border-white/10 group">
                             <img
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+                                src={MakImage}
                                 alt="Makinwa Amori"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                             />
@@ -62,7 +64,7 @@ const AboutSection: React.FC = () => {
                         {/* Bio Text */}
                         <div className="mt-8 mb-8">
                             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6">
-                                I'm a <span className="text-white font-semibold">Product & Web Designer</span> who
+                                I'm a <span className="text-white font-semibold">Product Designer</span> who
                                 believes that great design is the bridge between a user's need and a business's goal.
                             </p>
                             <p className="text-base text-gray-500 leading-relaxed">
@@ -75,15 +77,15 @@ const AboutSection: React.FC = () => {
                         {/* Stats Row */}
                         <div className="grid grid-cols-3 gap-6 py-8 border-t border-b border-white/10">
                             <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">4<span className="text-[#1A5CFF]">+</span></div>
+                                <div className="text-4xl md:text-5xl font-bold text-white">5<span className="text-[#1A5CFF]">+</span></div>
                                 <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Years Experience</div>
                             </div>
                             <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">50<span className="text-[#1A5CFF]">+</span></div>
+                                <div className="text-4xl md:text-5xl font-bold text-white">12<span className="text-[#1A5CFF]">+</span></div>
                                 <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Projects Delivered</div>
                             </div>
                             <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">30<span className="text-[#1A5CFF]">+</span></div>
+                                <div className="text-4xl md:text-5xl font-bold text-white">7<span className="text-[#1A5CFF]">+</span></div>
                                 <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Happy Clients</div>
                             </div>
                         </div>
@@ -102,23 +104,14 @@ const AboutSection: React.FC = () => {
                     >
                         <div>
                             <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Tools I Use</div>
-                            <div className="text-white font-medium">Design & Development Stack</div>
+                            <div className="text-white font-medium">Design & Prototyping</div>
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#F24E1E] hover:border-[#F24E1E]/30 transition-colors cursor-pointer">
                                 <IoLogoFigma />
                             </div>
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#FF61F6] hover:border-[#FF61F6]/30 transition-colors cursor-pointer">
-                                <SiAdobexd />
-                            </div>
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#0055FF] hover:border-[#0055FF]/30 transition-colors cursor-pointer">
-                                <SiFramer />
-                            </div>
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#61DAFB] hover:border-[#61DAFB]/30 transition-colors cursor-pointer">
-                                <IoLogoReact />
-                            </div>
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#264de4] hover:border-[#264de4]/30 transition-colors cursor-pointer">
-                                <IoLogoCss3 />
+                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#00C4CC] hover:border-[#00C4CC]/30 transition-colors cursor-pointer">
+                                <SiCanva />
                             </div>
                         </div>
                     </motion.div>

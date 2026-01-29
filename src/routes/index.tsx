@@ -1,5 +1,6 @@
 import Home from "pages/LandingPage/Home";
 import RouteNotFound from "pages/RouteNotFound";
+import Contact from "pages/LandingPage/Contact";
 
 export interface routeInterface {
     path: string;
@@ -26,6 +27,12 @@ const landingPageRoutes: routeInterface = {
             name: "Home",
             header: "Home",
             component: Home
+        },
+        {
+            path: "/contact",
+            name: "Contact",
+            header: "Contact",
+            component: Contact
         }
     ]
 }
