@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { IoArrowForward, IoLogoFigma } from 'react-icons/io5';
-import { SiCanva } from 'react-icons/si';
 
 const MakImage = require('./Asset/Mak.jpeg');
 
@@ -28,112 +27,103 @@ const AboutSection: React.FC = () => {
                 </motion.div>
 
                 {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-                    {/* Image Column */}
+                    {/* Image Column (Left) */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="lg:col-span-4"
+                        className="lg:col-span-5"
                     >
-                        <div className="relative h-full min-h-[400px] rounded-[2rem] overflow-hidden border border-white/10 group">
+                        <div className="relative h-[500px] lg:h-[600px] w-full rounded-[2rem] overflow-hidden border border-white/10 group">
                             <img
                                 src={MakImage}
                                 alt="Makinwa Amori"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                            <div className="absolute bottom-0 left-0 right-0 p-6">
-                                <div className="text-white/60 text-xs tracking-widest uppercase mb-1">Designer</div>
-                                <div className="text-white text-xl font-bold">Makinwa Amori</div>
-                                <div className="text-gray-400 text-sm mt-1">Ibadan, Nigeria</div>
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                            {/* Floating Card Detail */}
+                            <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl">
+                                <div className="flex justify-between items-end">
+                                    <div>
+                                        <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Based In</div>
+                                        <div className="text-white text-xl font-bold">Ibadan, Nigeria</div>
+                                    </div>
+                                    <div className="text-right">
+                                        <div className="text-[#1A5CFF] text-3xl font-bold">5+</div>
+                                        <div className="text-white/60 text-xs tracking-widest uppercase">Years Exp.</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Content Column */}
+                    {/* Content Column (Right) */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="lg:col-span-8 flex flex-col justify-between"
+                        className="lg:col-span-7 flex flex-col h-full"
                     >
                         {/* Bio Text */}
-                        <div className="mt-8 mb-8">
-                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6">
-                                I'm a <span className="text-white font-semibold">Product Designer</span> who
-                                believes that great design is the bridge between a user's need and a business's goal.
-                            </p>
-                            <p className="text-base text-gray-500 leading-relaxed">
-                                With over 4 years of hands-on experience, I've partnered with startups and established
-                                brands to craft digital products that are not only visually stunning but strategically
-                                designed to convert and engage. I transform complex problems into simple, intuitive solutions.
-                            </p>
+                        <div className="mb-12">
+                            <h3 className="text-2xl md:text-3xl font-light text-white mb-8 leading-snug">
+                                I'm a <span className="text-[#1A5CFF] font-medium">Product Designer</span> who believes that great design is the bridge between a user's need and a business's goal.
+                            </h3>
+                            <div className="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                                <p>
+                                    With over 4 years of hands-on experience, I've partnered with startups and established
+                                    brands to craft digital products that are not only visually stunning but strategically
+                                    designed to convert and engage.
+                                </p>
+                                <p>
+                                    My approach is simple: I transform complex problems into intuitive, human-centered solutions.
+                                    Every pixel has a purpose, and every interaction tells a story.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* Stats Row */}
-                        <div className="grid grid-cols-3 gap-6 py-8 border-t border-b border-white/10">
-                            <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">5<span className="text-[#1A5CFF]">+</span></div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Years Experience</div>
-                            </div>
-                            <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">12<span className="text-[#1A5CFF]">+</span></div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Projects Delivered</div>
-                            </div>
-                            <div>
-                                <div className="text-4xl md:text-5xl font-bold text-white">7<span className="text-[#1A5CFF]">+</span></div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider mt-2">Happy Clients</div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
+                        <div className="w-full h-[1px] bg-white/10 mb-12"></div>
 
-                {/* Bottom Row - Tools & CTA Cards */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-8">
-                    {/* Tools Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="lg:col-span-7 bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-                    >
-                        <div>
-                            <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">Tools I Use</div>
-                            <div className="text-white font-medium">Design & Prototyping</div>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#F24E1E] hover:border-[#F24E1E]/30 transition-colors cursor-pointer">
-                                <IoLogoFigma />
-                            </div>
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-white/60 hover:text-[#00C4CC] hover:border-[#00C4CC]/30 transition-colors cursor-pointer">
-                                <SiCanva />
-                            </div>
-                        </div>
-                    </motion.div>
+                        {/* Skills & Arsenal Section - Minimal Text Layout */}
+                        <div className="flex flex-col gap-12">
 
-                    {/* CTA Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="lg:col-span-5 bg-gradient-to-br from-[#1A5CFF]/20 to-[#1A5CFF]/5 border border-[#1A5CFF]/20 rounded-[2rem] p-8 flex items-center justify-between"
-                    >
-                        <div>
-                            <div className="text-white font-bold text-lg mb-1">Want to know more?</div>
-                            <div className="text-gray-400 text-sm">Check out my full story</div>
+                            {/* Skills Row */}
+                            <div>
+                                <div className="text-sm font-mono text-gray-500 mb-6 tracking-widest">.skills</div>
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg md:text-xl text-gray-300 font-light">
+                                    {["Design Strategy", "UX Research", "UI/UX Design", "Prototyping", "Interaction Design"].map((skill, index, array) => (
+                                        <React.Fragment key={index}>
+                                            <span className="hover:text-white transition-colors cursor-default">{skill}</span>
+                                            {index !== array.length - 1 && (
+                                                <span className="text-gray-700 text-base">•</span>
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Arsenal Row */}
+                            <div>
+                                <div className="text-sm font-mono text-gray-500 mb-6 tracking-widest">.tool</div>
+                                <div className="flex items-center gap-4 group cursor-pointer w-fit">
+                                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-[#F24E1E] group-hover:border-[#F24E1E] transition-all duration-300">
+                                        <IoLogoFigma className="text-2xl text-white/50 group-hover:text-white transition-colors" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-white text-lg font-medium">Figma</span>
+                                        <span className="text-gray-500 text-sm group-hover:text-white/70 transition-colors">Daily Driver</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <a
-                            href="/about"
-                            className="group flex items-center justify-center w-14 h-14 rounded-full bg-[#1A5CFF] hover:bg-[#0047FF] transition-colors"
-                        >
-                            <IoArrowForward className="text-white text-xl group-hover:translate-x-1 transition-transform" />
-                        </a>
+
                     </motion.div>
                 </div>
             </div>
