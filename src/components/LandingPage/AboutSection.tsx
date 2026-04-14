@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IoArrowForward, IoLogoFigma } from 'react-icons/io5';
+import { IoLogoFigma } from 'react-icons/io5';
 
 const MakImage = require('./Asset/Mak.jpeg');
 

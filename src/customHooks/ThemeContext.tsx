@@ -1,5 +1,5 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import useTheme from './useTheme';
+
 
 interface ThemeContextProps {
   isLightMode: boolean;

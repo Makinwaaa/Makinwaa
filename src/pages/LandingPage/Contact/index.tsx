@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
 export default function Contact() {
