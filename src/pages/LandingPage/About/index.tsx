@@ -6,7 +6,7 @@ import Certifications from 'components/LandingPage/Certifications';
 
 export default function About() {
     return (
-        <div className="min-h-screen bg-[#0A0101] text-white" style={{ fontFamily: '"Noto Serif", serif' }}>
+        <div className="min-h-screen bg-gray-50 text-gray-900" style={{ fontFamily: '"Noto Serif", serif' }}>
             <main>
                 <AboutHero />
 

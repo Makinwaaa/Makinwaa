@@ -31,7 +31,7 @@ const certifications = [
 
 const Certifications: React.FC = () => {
     return (
-        <section className="bg-black text-white py-24 px-6 md:px-16 lg:px-24">
+        <section className="bg-white text-gray-900 py-24 px-6 md:px-16 lg:px-24">
             <div className="max-w-[1400px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -39,13 +39,13 @@ const Certifications: React.FC = () => {
                     viewport={{ once: true }}
                     className="mb-16"
                 >
-                    <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-gray-400 tracking-widest mb-6">
+                    <div className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-xs font-medium text-gray-500 tracking-widest mb-6">
                         • Credentials
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Certifications & Awards
                     </h2>
-                    <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                    <p className="text-gray-600 max-w-2xl text-lg font-light leading-relaxed">
                         Continuous learning is at the heart of my process. Here are some of the qualifications I've earned along the journey.
                     </p>
                 </motion.div>
@@ -58,21 +58,21 @@ const Certifications: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="group bg-[#0f0f0f] border border-white/5 rounded-2xl p-8 hover:border-white/20 transition-all duration-300 hover:bg-[#141414]"
+                            className="group bg-white border border-gray-200 p-8 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md hover:bg-gray-50"
                         >
                             <div className="flex items-start justify-between mb-8">
-                                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/5 group-hover:scale-110 transition-transform duration-300 text-2xl text-white/70">
+                                <div className="w-12 h-12 bg-gray-100 flex items-center justify-center border border-gray-200 group-hover:scale-110 transition-transform duration-300 text-2xl text-gray-600">
                                     <IoRibbonOutline />
                                 </div>
-                                <span className="text-xs font-mono text-gray-500 border border-white/5 px-3 py-1 rounded-full bg-black/50">{cert.date}</span>
+                                <span className="text-xs font-mono text-gray-600 border border-gray-200 px-3 py-1 rounded-full bg-gray-50">{cert.date}</span>
                             </div>
 
-                            <h3 className="text-xl font-medium text-white mb-2 group-hover:text-[#1A5CFF] transition-colors">
+                            <h3 className="text-xl font-medium text-gray-900 mb-2 group-hover:text-[#1A5CFF] transition-colors">
                                 {cert.title}
                             </h3>
-                            <div className="text-sm text-gray-400 mb-4">{cert.issuer}</div>
+                            <div className="text-sm text-gray-500 mb-4">{cert.issuer}</div>
 
-                            <p className="text-sm text-gray-500 leading-relaxed border-t border-white/5 pt-4 mt-4">
+                            <p className="text-sm text-gray-600 leading-relaxed border-t border-gray-200 pt-4 mt-4">
                                 {cert.description}
                             </p>
                         </motion.div>

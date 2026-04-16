@@ -63,18 +63,15 @@ const DesignShowcase: React.FC = () => {
     }, [isPaused, nextProject]);
 
     return (
-        <section className="bg-black text-white py-24 px-6 md:px-16 lg:px-24">
-            {/* Header - Centered */}
-            <div className="text-center mb-16">
-                <span className="inline-block px-4 py-1.5 rounded-full border border-[#333] bg-[#1a1a1a] text-xs font-medium text-gray-400 mb-6">
+        <section className="bg-gray-50 text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24">
+            {/* Header - Left Aligned */}
+            <div className="mb-10 md:mb-16">
+                <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-xs font-medium text-gray-500 mb-6 shadow-sm">
                     • Design Showcase
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                    Fresh From My Desk
+                <h2 className="text-4xl md:text-5xl font-bold">
+                    Interface Explorations
                 </h2>
-                <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto">
-                    A collection of project screens, concepts, and creative explorations I've been working on.
-                </p>
             </div>
 
             {/* Desktop Screen Container */}
@@ -87,37 +84,37 @@ const DesignShowcase: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="relative bg-[#111] rounded-2xl overflow-hidden border border-[#222] shadow-2xl"
+                    className="relative bg-white overflow-hidden border border-gray-200 shadow-sm w-full"
                 >
                     {/* Browser Top Bar */}
-                    <div className="flex items-center justify-between px-4 py-3 bg-[#0a0a0a] border-b border-[#1a1a1a]">
+                    <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
                         <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
                             <div className="w-3 h-3 rounded-full bg-[#febc2e]"></div>
                             <div className="w-3 h-3 rounded-full bg-[#28c840]"></div>
                         </div>
-                        <div className="flex-1 max-w-md mx-4">
-                            <div className="bg-[#1a1a1a] rounded-md px-4 py-1.5 text-center">
-                                <span className="text-gray-500 text-xs">makinwaa.com/projects/{currentProject.title.toLowerCase().replace(' ', '-')}</span>
+                        <div className="hidden md:block flex-1 max-w-md mx-4">
+                            <div className="bg-white border border-gray-200 rounded-md px-4 py-1.5 text-center shadow-sm">
+                                <span className="text-gray-500 text-xs truncate block">makinwaa.com/design/{currentProject.title.toLowerCase().replace(' ', '-')}</span>
                             </div>
                         </div>
-                        <div className="w-20"></div>
+                        <div className="w-20 hidden md:block"></div>
                     </div>
 
                     {/* Image Container - Wide Desktop Ratio */}
-                    <div className="relative aspect-[16/9] md:aspect-[21/10] overflow-hidden bg-black">
+                    <div className="relative aspect-[16/9] md:aspect-[21/10] lg:aspect-[24/10] overflow-hidden bg-gray-100">
                         {/* Navigation Arrows */}
                         <button
                             onClick={prevProject}
-                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 transition-all duration-300 hover:scale-110"
+                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/70 hover:bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-gray-200 transition-all duration-300 hover:scale-110 shadow-sm"
                         >
-                            <IoChevronBack className="text-white text-xl" />
+                            <IoChevronBack className="text-gray-900 text-xl" />
                         </button>
                         <button
                             onClick={nextProject}
-                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 transition-all duration-300 hover:scale-110"
+                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/70 hover:bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-gray-200 transition-all duration-300 hover:scale-110 shadow-sm"
                         >
-                            <IoChevronForward className="text-white text-xl" />
+                            <IoChevronForward className="text-gray-900 text-xl" />
                         </button>
 
                         <AnimatePresence mode="wait">
@@ -132,13 +129,10 @@ const DesignShowcase: React.FC = () => {
                                 className="w-full h-full object-cover"
                             />
                         </AnimatePresence>
-
-                        {/* Gradient Overlay at Bottom */}
-                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"></div>
                     </div>
 
                     {/* Bottom Info Bar - Inside the Screen */}
-                    <div className="px-6 py-4 bg-[#0a0a0a] border-t border-[#1a1a1a] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="px-6 py-5 bg-white border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
                         {/* Project Info */}
                         <div className="flex items-center gap-4">
                             <AnimatePresence mode="wait">
@@ -148,19 +142,19 @@ const DesignShowcase: React.FC = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.3 }}
-                                    className="text-white font-semibold text-lg"
+                                    className="text-gray-900 font-semibold text-lg"
                                 >
                                     {currentProject.title}
                                 </motion.span>
                             </AnimatePresence>
-                            <span className="text-gray-600">•</span>
-                            <span className="text-gray-500 text-sm">{currentProject.year}</span>
+                            <span className="text-gray-400">•</span>
+                            <span className="text-gray-500 text-sm font-medium">{currentProject.year}</span>
                         </div>
 
                         {/* Progress Bar */}
-                        <div className="flex-1 max-w-[250px] h-[3px] bg-[#1a1a1a] rounded-full overflow-hidden mx-4 hidden sm:block">
+                        <div className="flex-1 max-w-[250px] h-1.5 bg-gray-100 rounded-full overflow-hidden mx-4 hidden sm:block">
                             <motion.div
-                                className="h-full bg-gray-500 rounded-full"
+                                className="h-full bg-gray-400 rounded-full"
                                 key={currentIndex}
                                 initial={{ width: "0%" }}
                                 animate={{ width: "100%" }}
@@ -172,11 +166,11 @@ const DesignShowcase: React.FC = () => {
                         </div>
 
                         {/* Tags */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2">
                             {currentProject.tags.map((tag, idx) => (
                                 <span
                                     key={idx}
-                                    className="px-3 py-1 bg-[#1a1a1a] border border-[#333] rounded-full text-xs text-gray-400"
+                                    className="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-500"
                                 >
                                     {tag}
                                 </span>
@@ -186,14 +180,14 @@ const DesignShowcase: React.FC = () => {
                 </motion.div>
 
                 {/* Dots Navigation - Below the Screen */}
-                <div className="flex items-center justify-center gap-2 mt-6">
+                <div className="flex items-center justify-center gap-2 mt-8">
                     {projects.map((_, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentIndex(idx)}
-                            className={`h-2 rounded-full transition-all duration-400 ${idx === currentIndex
-                                    ? 'bg-white w-8'
-                                    : 'bg-gray-700 w-2 hover:bg-gray-500'
+                            className={`h-1.5 rounded-full transition-all duration-400 ${idx === currentIndex
+                                ? 'bg-gray-800 w-8'
+                                : 'bg-gray-300 w-2 hover:bg-gray-400'
                                 }`}
                         />
                     ))}

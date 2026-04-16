@@ -51,10 +51,10 @@ const workHistory = [
 
 const WorkExperience: React.FC = () => {
     return (
-        <section className="bg-black text-white py-24 px-6 md:px-16 lg:px-24">
+        <section className="bg-white text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24">
             {/* Header */}
-            <div className="mb-16">
-                <span className="inline-block px-4 py-1.5 rounded-full border border-[#333] bg-[#1a1a1a] text-xs font-medium text-gray-400 mb-6">
+            <div className="mb-10 md:mb-16">
+                <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 shadow-sm text-xs font-medium text-gray-500 mb-6">
                     • Experience
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold">
@@ -67,27 +67,27 @@ const WorkExperience: React.FC = () => {
                 {workHistory.map((work) => (
                     <div
                         key={work.id}
-                        className="border-t border-[#1a1a1a] py-10 flex flex-col xl:flex-row xl:items-center gap-6 hover:bg-[#0a0a0a] transition-colors cursor-pointer group"
+                        className="border-t border-gray-200 py-6 md:py-10 flex flex-col xl:flex-row xl:items-center gap-3 md:gap-6 hover:bg-gray-50 transition-colors cursor-pointer group"
                     >
                         {/* Number */}
-                        <span className="text-gray-600 text-sm font-mono w-12 flex-shrink-0 pt-1">{work.id}</span>
+                        <span className="text-gray-400 text-sm font-mono w-12 flex-shrink-0 pt-1">{work.id}</span>
 
                         {/* Role & Details */}
                         <div className="flex-1 min-w-0">
-                            <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-500 transition-colors">{work.role}</h3>
-                            <div className="flex items-center text-gray-400 text-sm">
-                                <span className="font-medium text-gray-300">{work.company}</span>
-                                <span className="mx-2 text-gray-600">•</span>
+                            <h3 className="text-gray-900 font-bold text-lg md:text-xl mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">{work.role}</h3>
+                            <div className="flex flex-wrap items-center text-gray-500 text-xs md:text-sm gap-y-1">
+                                <span className="font-medium text-gray-600">{work.company}</span>
+                                <span className="mx-2 text-gray-300">•</span>
                                 <span>{work.location}</span>
-                                <span className="mx-2 text-gray-600">•</span>
+                                <span className="mx-2 text-gray-300">•</span>
                                 <span>{work.type}</span>
                             </div>
                         </div>
 
                         {/* Description & Duration */}
-                        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-12 xl:ml-auto w-full xl:w-auto mt-4 xl:mt-0">
-                            <p className="text-gray-400 text-sm whitespace-nowrap overflow-x-auto no-scrollbar">{work.description}</p>
-                            <span className="text-gray-500 text-xs font-medium tracking-wide uppercase border border-white/10 px-3 py-1 rounded-full">
+                        <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-12 xl:ml-auto w-full xl:w-auto mt-2 xl:mt-0">
+                            <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{work.description}</p>
+                            <span className="text-gray-500 text-xs font-medium tracking-wide uppercase border border-gray-200 bg-white px-3 py-1 rounded-full shadow-sm">
                                 {work.duration}
                             </span>
                         </div>

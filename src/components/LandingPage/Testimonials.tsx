@@ -1,90 +1,186 @@
 
-import React from 'react';
-import { IoStar } from 'react-icons/io5';
+import React, { useRef, useEffect, useState } from 'react';
 
 const testimonials = [
     {
         id: 1,
         name: "Macaulay Uzu",
         role: "FrontEnd Lead, Hydrogen",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Macaulay&backgroundColor=b6e3f4",
+        initial: "MU",
         content: "Collaborating with Makinwaa was effortless. He integrated seamlessly with our development team, making the handoff and implementation process incredibly smooth."
     },
     {
         id: 2,
         name: "Aduragbemi Gagher",
         role: "Product Manager, DokRx",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Aduragbemi&backgroundColor=c0aede",
+        initial: "AG",
         content: "Makinwaa delivered an exceptional design for our Healthtech platform. He truly grasped our user needs and translated them into a highly effective interface."
     },
     {
         id: 3,
         name: "Eriadura Odunlami",
         role: "CEO, Prejamb",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Eriadura&backgroundColor=ffdfbf",
+        initial: "EO",
         content: "He designed a beautiful educational platform for us. His work ethic is fantastic, and it was a pleasure collaborating to bring our vision to life."
     },
     {
         id: 4,
         name: "OluwaRotimi",
         role: "CTO, Hydrogen HR",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Rotimi&backgroundColor=d1d4f9",
+        initial: "OR",
         content: "Makinwaa is a standout talent. His ability to combine aesthetic appeal with functional design principles significantly elevated our product's quality."
     },
     {
         id: 5,
         name: "Ayomide Ishola",
         role: "FrontEnd Lead, Octacode",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Ayomide&backgroundColor=ffd5dc",
+        initial: "AI",
         content: "One of the easiest designers I've ever worked with. His designs are developer-friendly, and his communication makes the entire process efficient."
     },
     {
         id: 6,
         name: "Amusan Oluwatoni",
         role: "Founder, Bowentechhub",
-        image: "https://api.dicebear.com/9.x/micah/svg?seed=Amusan&backgroundColor=c0aede",
+        initial: "AO",
         content: "A highly skilled professional who consistently delivers. Working with Makinwaa was a great experience, and the final results exceeded our expectations."
     }
 ];
 
+// Subtle background tints for each card (back side)
+const cardAccents = [
+    { bg: '#F8F6F3', border: '#E8E3DB' },
+    { bg: '#F3F6F8', border: '#DBE3E8' },
+    { bg: '#F6F3F8', border: '#E3DBE8' },
+    { bg: '#F3F8F6', border: '#DBE8E3' },
+    { bg: '#F8F3F5', border: '#E8DBE0' },
+    { bg: '#F5F8F3', border: '#E0E8DB' },
+];
+
+interface TestimonialCardProps {
+    item: typeof testimonials[0];
+    index: number;
+}
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ item, index }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Mobile: Intersection Observer to auto-flip when card enters viewport center
+    useEffect(() => {
+        if (!isMobile || !cardRef.current) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+                        setIsFlipped(true);
+                    } else {
+                        setIsFlipped(false);
+                    }
+                });
+            },
+            {
+                threshold: [0, 0.3, 0.7, 1.0],
+                rootMargin: '-10% 0px -10% 0px'
+            }
+        );
+
+        observer.observe(cardRef.current);
+        return () => observer.disconnect();
+    }, [isMobile]);
+
+    const accent = cardAccents[index % cardAccents.length];
+
+    // Split name into first and last for stylish layout
+    const nameParts = item.name.split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(' ');
+
+    return (
+        <div
+            ref={cardRef}
+            className="testimonial-card-container"
+            onMouseEnter={() => !isMobile && setIsFlipped(true)}
+            onMouseLeave={() => !isMobile && setIsFlipped(false)}
+        >
+            <div className={`testimonial-card-inner ${isFlipped ? 'is-flipped' : ''}`}>
+                {/* ===== BACK FACE (Default - Shows Name Stylishly) ===== */}
+                <div
+                    className="testimonial-card-face testimonial-card-back"
+                    style={{ backgroundColor: accent.bg, borderColor: accent.border }}
+                >
+                    <div className="testimonial-back-content">
+                        {/* Decorative quote mark */}
+                        <span className="testimonial-back-quote">"</span>
+
+                        {/* Stylish name display */}
+                        <div className="testimonial-back-name-group">
+                            <h3 className="testimonial-back-firstname">{firstName}</h3>
+                            {lastName && (
+                                <h3 className="testimonial-back-lastname">{lastName}</h3>
+                            )}
+                        </div>
+
+                        {/* Role line */}
+                        <div className="testimonial-back-divider"></div>
+                        <p className="testimonial-back-role">{item.role}</p>
+                    </div>
+                </div>
+
+                {/* ===== FRONT FACE (Hover - Shows Testimonial Content) ===== */}
+                <div className="testimonial-card-face testimonial-card-front">
+                    <div className="testimonial-front-content">
+                        {/* Open quote */}
+                        <span className="testimonial-front-quote">"</span>
+
+                        {/* Testimonial text */}
+                        <p className="testimonial-front-text">
+                            {item.content}
+                        </p>
+
+                        {/* Attribution */}
+                        <div className="testimonial-front-attribution">
+                            <div className="testimonial-front-avatar">
+                                {item.initial}
+                            </div>
+                            <div>
+                                <h4 className="testimonial-front-name">{item.name}</h4>
+                                <p className="testimonial-front-role">{item.role}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const Testimonials: React.FC = () => {
     return (
-        <section className="bg-black text-white py-24 px-6 md:px-16 lg:px-24">
-            <div className="text-center mb-20">
-                <div className="inline-block px-3 py-1 rounded-full border border-[#333] bg-[#1a1a1a] text-xs font-medium text-gray-300 mb-6">
+        <section className="bg-white text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24">
+            {/* Left-aligned Header */}
+            <div className="mb-10 md:mb-16">
+                <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 shadow-sm text-xs font-medium text-gray-500 mb-6">
                     • Testimonials
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold">
                     What People Are Saying.
-                </h2>
-                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-400 to-gray-700">
-                    Trusted by Industry Leaders.
                 </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {testimonials.map((item) => (
-                    <div key={item.id} className="bg-[#0A0A0A] border border-[#ffffff0d] rounded-3xl p-8 hover:bg-[#111] hover:border-blue-500/20 transition-all duration-300 group">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 rounded-full overflow-hidden border border-[#333]">
-                                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold text-base group-hover:text-blue-500 transition-colors">{item.name}</h4>
-                                <p className="text-gray-500 text-xs">{item.role}</p>
-                            </div>
-                        </div>
-
-                        <div className="mb-4 flex gap-1">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                                <IoStar key={star} className="text-yellow-500/80 text-xs" />
-                            ))}
-                        </div>
-
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            "{item.content}"
-                        </p>
-                    </div>
+            {/* Card Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+                {testimonials.map((item, index) => (
+                    <TestimonialCard key={item.id} item={item} index={index} />
                 ))}
             </div>
         </section>

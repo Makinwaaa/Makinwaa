@@ -1,181 +1,215 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IoArrowForward, IoLockClosed } from 'react-icons/io5';
+import { FiArrowUpRight } from 'react-icons/fi';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { IoArrowForward } from 'react-icons/io5';
-
-const projects = [
+const allProjects = [
     {
         id: 1,
-        title: "Perplexity AI",
-        subtitle: "Search Interface",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
-        quote: "Collaborated on the search interface to ensure rapid response times and fluid user interactions.",
-        status: "Live Project",
-        statusColor: "green",
-        url: "#",
-        tags: ["React", "AI Integration", "Tailwind"],
-        bgColor: "bg-[#050505]"
+        title: "Partyverse",
+        year: "2025",
+        category: "Mobile Application",
+        description: "Designed Partyverse's v1.0: a warm, widget-based event app that makes anyone feel like a planner. People literally started hosting events just to use it.",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: false,
+        liveUrl: null,
     },
     {
         id: 2,
-        title: "Sonar",
-        subtitle: "Analytics Dashboard",
+        title: "Chainrails",
+        year: "2025",
+        category: "Web Application",
+        description: "Crafted Chainrails, an SDK that lets anyone pay from any chain, with any token. No checking or swapping required.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-        quote: "Built the analytics dashboard components using React and D3.js for real-time data visualization.",
-        status: "Deployed Locally",
-        statusColor: "yellow",
-        url: "#",
-        tags: ["D3.js", "Dashboard", "Real-time"],
-        bgColor: "bg-[#1a0f0a]"
+        hasCaseStudy: true,
+        ndaLocked: true,
+        liveUrl: "#",
     },
     {
         id: 3,
-        title: "Framer",
-        subtitle: "Design System",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
-        quote: "Developed a shared component library to bridge the gap between design and engineering teams.",
-        status: "Live Project",
-        statusColor: "green",
-        url: "#",
-        tags: ["Design System", "TypeScript", "Storybook"],
-        bgColor: "bg-[#080808]"
+        title: "Peer Virtual Cards",
+        year: "2025",
+        category: "Mobile Application",
+        description: "Introduced a new look to Peer's 'Virtual Cards' interface, designed to be more vibrant and built around how users actually spend everyday.",
+        image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2070&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: true,
+        liveUrl: null,
+    },
+    {
+        id: 4,
+        title: "Sonar Analytics",
+        year: "2024",
+        category: "Web Application",
+        description: "Built the analytics dashboard components using React and D3.js for real-time data visualization.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: false,
+        liveUrl: "#",
+    },
+    {
+        id: 5,
+        title: "Velocity",
+        year: "2024",
+        category: "Web Application",
+        description: "A comprehensive digital banking platform offering frictionless financial management.",
+        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: true,
+        liveUrl: "#",
+    },
+    {
+        id: 6,
+        title: "Nexus Store",
+        year: "2023",
+        category: "Web Application",
+        description: "An elegant e-commerce experience maximizing conversion through rapid interactions.",
+        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: false,
+        liveUrl: null,
+    },
+    {
+        id: 7,
+        title: "Aurora System",
+        year: "2023",
+        category: "Web Application",
+        description: "Developed a shared component library to bridge the gap between design and engineering teams.",
+        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: true,
+        liveUrl: "#",
+    },
+    {
+        id: 8,
+        title: "Sentinel Security",
+        year: "2023",
+        category: "Web Application",
+        description: "Designed a mobile security management suite providing real-time alerts.",
+        image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1974&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: false,
+        liveUrl: null,
+    },
+    {
+        id: 9,
+        title: "Horizon",
+        year: "2022",
+        category: "Web Application",
+        description: "Architected a minimalist landing page designed to attract high-end enterprise clients.",
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
+        hasCaseStudy: true,
+        ndaLocked: false,
+        liveUrl: "#",
     }
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-    <div className={`w-[90vw] md:w-[1100px] h-[600px] flex-shrink-0 ${project.bgColor} rounded-3xl overflow-hidden border border-[#ffffff1a] relative mx-4 flex flex-col md:flex-row group transition-all duration-300 hover:border-[#ffffff33]`}>
-
-        {/* Left Side - Content (40% width) */}
-        <div className="w-full md:w-[40%] p-8 md:p-12 flex flex-col relative z-10 border-r border-white/5 bg-[#ffffff02]">
-            {/* Header: Icon + Title */}
-            <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10 shrink-0">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </div>
-                <span className="text-white font-bold text-lg md:text-xl">{project.title}</span>
-            </div>
-
-            {/* Quote/Description (Top) */}
-            <h3 className="text-2xl md:text-3xl leading-snug font-medium text-white/90 mb-8">
-                "{project.quote}"
-            </h3>
-
-            {/* Spacer to push Subtitle and Tags down */}
-            <div className="mt-auto"></div>
-
-            {/* Subtitle (Small) */}
-            <div className="text-white/40 text-[10px] uppercase tracking-widest mb-3 font-semibold">
-                {project.subtitle}
-            </div>
-
-            {/* Tags (Just above border) */}
-            <div className="flex flex-wrap gap-2 mb-8">
-                {project.tags.map((tag, idx) => (
-                    <span key={idx} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/60">
-                        {tag}
-                    </span>
-                ))}
-            </div>
-
-            {/* Footer: Status + Arrow Link (Border Separated) */}
-            <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                {/* Status Indicator */}
-                <div className="flex items-center gap-3">
-                    <span className="relative flex h-2.5 w-2.5">
-                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${project.statusColor === 'green' ? 'bg-green-400' : 'bg-yellow-400'} opacity-75`}></span>
-                        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${project.statusColor === 'green' ? 'bg-green-500' : 'bg-yellow-500'}`}></span>
-                    </span>
-                    <span className={`text-sm font-medium ${project.statusColor === 'green' ? 'text-green-500' : 'text-yellow-500'}`}>
-                        {project.status}
-                    </span>
-                </div>
-
-                {/* External Link Arrow */}
-                <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group/link"
-                >
-                    <IoArrowForward className="transform group-hover/link:-rotate-45 transition-transform duration-300" />
-                </a>
-            </div>
-        </div>
-
-        {/* Right Side - Image (60% width) */}
-        <div className="w-full md:w-[60%] h-full relative overflow-hidden bg-black">
-            {/* Decorative Background Pattern */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-50"></div>
-
-            {/* Image Container */}
-            <div className="absolute inset-0 group-hover:inset-4 transition-all duration-700 ease-in-out">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 group-hover:rounded-xl"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-        </div>
-    </div>
-);
+const categories = ["All", "Web Application", "Mobile Application"];
 
 const ProjectShowcase: React.FC = () => {
-    // Duplicate projects for infinite loop
-    const doubledProjects = [...projects, ...projects, ...projects];
+    const [activeTab, setActiveTab] = useState("All");
+
+    const filteredProjects = activeTab === "All"
+        ? allProjects
+        : allProjects.filter(p => p.category === activeTab);
+
+    const getCount = (cat: string) => {
+        if (cat === "All") return allProjects.length;
+        return allProjects.filter(p => p.category === cat).length;
+    };
 
     return (
-        <section className="bg-black text-white py-32 overflow-hidden">
-            {/* Header */}
-            <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 mb-20 text-center">
-                <div className="inline-block px-4 py-1.5 rounded-full border border-[#333] bg-[#1a1a1a] text-xs font-medium text-gray-300 mb-6">
-                    • Projects Worked On
+        <section className="bg-white text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24">
+            <div className="max-w-[1400px] mx-auto">
+
+                {/* Filter Tabs */}
+                <div className="flex flex-nowrap items-center gap-4 md:gap-8 mb-8 md:mb-12 border-b border-gray-100 pb-4">
+                    {categories.map((cat) => {
+                        const count = getCount(cat);
+                        const isActive = activeTab === cat;
+                        return (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveTab(cat)}
+                                className={`flex items-start transition-colors duration-300 relative ${isActive
+                                    ? "text-gray-900 font-bold"
+                                    : "text-gray-400 font-medium hover:text-gray-600"
+                                    } text-sm md:text-lg whitespace-nowrap`}
+                            >
+                                {cat}
+                                <span className="text-[10px] ml-1 -mt-1 font-semibold">{count}</span>
+                            </button>
+                        );
+                    })}
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                    Delivering Tangible Results
-                </h2>
-                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-400 to-gray-700 mb-8">
-                    That Propel Your Success
-                </h2>
+                {/* Grid */}
+                <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 items-start">
+                    <AnimatePresence mode="popLayout">
+                        {filteredProjects.map((project) => (
+                            <motion.div
+                                key={project.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                className="flex flex-col group"
+                            >
+                                {/* Image Container */}
+                                <div className="relative w-full aspect-[4/3] bg-gray-50 overflow-hidden mb-6 flex items-center justify-center border border-gray-100">
+                                    <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-900/5 transition-colors duration-300"></div>
+                                </div>
 
-                <p className="text-gray-400 max-w-xl mx-auto mb-10 text-[16px]">
-                    At the core of everything we do lies a commitment to collaborating with
-                    ambitious teams to deliver measurable outcomes.
-                </p>
+                                {/* Content */}
+                                <div className="flex items-center justify-between mb-3">
+                                    <h3 className="text-xl md:text-2xl font-medium text-gray-900">
+                                        {project.title}
+                                    </h3>
+                                    <span className="text-gray-400 text-sm font-light">
+                                        {project.year}
+                                    </span>
+                                </div>
 
-                <a href="/contact" className="bg-[#1A5CFF] hover:bg-[#0047FF] text-white text-sm font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(26,92,255,0.3)] hover:shadow-[0_0_30px_rgba(26,92,255,0.5)]">
-                    Book a 15-min call
-                </a>
-            </div>
+                                <p className="text-gray-600 font-light leading-relaxed mb-6">
+                                    {project.description}
+                                </p>
 
-            {/* Scrolling Carousel - Auto Scroll */}
-            <div className="relative w-full overflow-hidden group/carousel">
-                {/* Fade Edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none hidden md:block"></div>
-                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none hidden md:block"></div>
+                                {/* Links bottom */}
+                                <div className="flex items-center gap-6 mt-auto">
+                                    {project.hasCaseStudy && (
+                                        project.ndaLocked ? (
+                                            <span className="flex items-center text-gray-400 text-sm gap-2 font-medium cursor-not-allowed">
+                                                <IoLockClosed className="text-[16px]" /> Read Case Study
+                                            </span>
+                                        ) : (
+                                            <a href="#" className="flex items-center text-gray-500 hover:text-gray-900 text-sm gap-1 font-medium transition-colors group/link relative">
+                                                Read Case Study
+                                                <IoArrowForward className="ml-1 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
+                                                <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-gray-900 group-hover/link:w-full transition-all duration-300"></span>
+                                            </a>
+                                        )
+                                    )}
 
-                <div className="flex">
-                    <motion.div
-                        className="flex gap-8 px-4"
-                        animate={{ x: ["0%", "-33.33%"] }} // Scroll one set of projects
-                        transition={{
-                            repeat: Infinity,
-                            ease: "linear",
-                            duration: 50 // Slower scroll speed (increased from 20)
-                        }}
-                        style={{ width: "fit-content" }}
-                    >
-                        {doubledProjects.map((project, index) => (
-                            <ProjectCard key={`${project.id}-${index}`} project={project} />
+                                    {project.liveUrl && (
+                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-900 hover:text-blue-600 text-sm gap-1 font-medium transition-colors">
+                                            View Live Site <FiArrowUpRight className="text-[16px]" />
+                                        </a>
+                                    )}
+                                </div>
+                            </motion.div>
                         ))}
-                    </motion.div>
-                </div>
+                    </AnimatePresence>
+                </motion.div>
+
             </div>
         </section>
     );

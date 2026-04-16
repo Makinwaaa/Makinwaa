@@ -44,12 +44,12 @@ const marqueeItems = [...mediaItems, ...mediaItems, ...mediaItems];
 
 const PersonalGallery: React.FC = () => {
     return (
-        <section className="bg-black text-white py-24 px-6 md:px-16 lg:px-24 overflow-hidden border-t border-white/5">
+        <section className="bg-gray-50 text-gray-900 py-24 px-6 md:px-16 lg:px-24 overflow-hidden border-t border-gray-200">
             <div className="max-w-[1400px] mx-auto mb-16">
-                <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-gray-400 tracking-widest mb-6">
+                <div className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-medium text-gray-500 tracking-widest mb-6 shadow-sm">
                     • Lifestyle
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                     Life Beyond Design
                 </h2>
             </div>
@@ -71,7 +71,7 @@ const PersonalGallery: React.FC = () => {
                             <div key={`${item.id}-${index}`} className="flex flex-col gap-4 group cursor-default">
                                 {/* Image Container with varied aspect ratios/heights */}
                                 <div
-                                    className={`relative overflow-hidden bg-[#111] border border-white/10 rounded-sm grayscale group-hover:grayscale-0 transition-all duration-500
+                                    className={`relative overflow-hidden bg-gray-100 border border-gray-200 grayscale group-hover:grayscale-0 transition-all duration-500
                                         ${item.aspect === 'aspect-[16/9]' ? 'w-[400px] h-[225px]' : ''}
                                         ${item.aspect === 'aspect-[4/3]' ? 'w-[320px] h-[240px]' : ''}
                                         ${item.aspect === 'aspect-[3/4]' ? 'w-[240px] h-[320px]' : ''}
@@ -88,7 +88,7 @@ const PersonalGallery: React.FC = () => {
                                 </div>
 
                                 {/* Caption */}
-                                <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors duration-300 border-l border-white/20 pl-3">
+                                <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-gray-900 transition-colors duration-300 border-l border-gray-300 pl-3">
                                     {item.caption}
                                 </div>
                             </div>

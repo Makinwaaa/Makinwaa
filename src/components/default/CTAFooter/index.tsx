@@ -17,7 +17,7 @@ const CTAFooter: React.FC = () => {
     const resumeLink = "#";
 
     return (
-        <section className="bg-gradient-to-t from-[#0a0a0a] to-black text-white py-24 px-6 md:px-16 lg:px-24 relative overflow-hidden">
+        <section className="bg-gradient-to-t from-gray-50 to-white text-gray-900 py-24 px-6 md:px-16 lg:px-24 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Subtle Gradient Orbs - Softened and moved bottom */}
@@ -25,7 +25,7 @@ const CTAFooter: React.FC = () => {
                 <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[150px] mix-blend-screen opacity-30"></div>
 
                 {/* Grid Pattern - Lower opacity */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:50px_50px]"></div>
             </div>
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -34,7 +34,7 @@ const CTAFooter: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-block px-4 py-1.5 rounded-full border border-[#333] bg-[#1a1a1a] text-xs font-medium text-gray-400 mb-8"
+                    className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-medium text-gray-500 mb-8 shadow-sm"
                 >
                     • Let's Work Together
                 </motion.span>
@@ -53,7 +53,7 @@ const CTAFooter: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-gray-400 text-[16px] max-w-lg mx-auto mb-10 leading-relaxed"
+                    className="text-gray-600 text-[16px] max-w-lg mx-auto mb-10 leading-relaxed"
                 >
                     I'm always open to discussing new projects, creative ideas,
                     or opportunities to be part of your vision.
@@ -79,7 +79,7 @@ const CTAFooter: React.FC = () => {
                     <a
                         href={resumeLink}
                         download
-                        className="flex items-center gap-2 border border-[#333] text-white font-medium py-3 px-6 rounded-full hover:bg-[#111] hover:border-[#444] transition-all duration-300 text-sm"
+                        className="flex items-center gap-2 border border-gray-300 text-gray-800 font-medium py-3 px-6 rounded-full hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 text-sm"
                     >
                         <IoDocumentTextOutline className="text-lg" />
                         Download Resume
@@ -95,7 +95,7 @@ const CTAFooter: React.FC = () => {
                 >
                     <a
                         href={`mailto:${email}`}
-                        className="text-base md:text-lg font-medium text-gray-500 hover:text-white transition-colors duration-300 border-b border-gray-700 hover:border-white pb-1"
+                        className="text-base md:text-lg font-medium text-gray-500 hover:text-[#1A5CFF] transition-colors duration-300 border-b border-gray-300 hover:border-[#1A5CFF] pb-1"
                     >
                         {email}
                     </a>
@@ -106,7 +106,7 @@ const CTAFooter: React.FC = () => {
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#333] to-transparent mb-10"
+                    className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-10"
                 />
 
                 {/* Footer Info */}
@@ -122,9 +122,9 @@ const CTAFooter: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-5">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-                        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Dribbble</a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">LinkedIn</a>
+                        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Dribbble</a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">GitHub</a>
                     </div>
 
                     <span>© {currentYear} Makinwaa</span>

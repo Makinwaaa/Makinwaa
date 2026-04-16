@@ -45,18 +45,18 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-[#0A0101] text-white flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 pt-24 overflow-hidden">
+        <section className="relative min-h-screen bg-white text-gray-900 flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 pt-24 overflow-hidden">
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-900/15 to-purple-900/10 rounded-full blur-[180px] pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-100/50 to-purple-100/40 rounded-full blur-[180px] pointer-events-none"></div>
 
             {/* Grid Pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:60px_60px] opacity-30 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:60px_60px] opacity-100 pointer-events-none"></div>
 
             {/* Floating Decorative Shapes */}
             <motion.div
                 variants={floatVariants}
                 animate="animate"
-                className="absolute top-[20%] left-[10%] w-20 h-20 border border-white/10 rounded-full opacity-30 hidden md:block"
+                className="absolute top-[20%] left-[10%] w-20 h-20 border border-black/10 rounded-full opacity-30 hidden md:block"
             />
             <motion.div
                 variants={floatVariants2}
@@ -71,12 +71,12 @@ const Hero: React.FC = () => {
             <motion.div
                 variants={floatVariants2}
                 animate="animate"
-                className="absolute bottom-[30%] right-[10%] w-16 h-16 border border-white/5 rounded-lg rotate-12 opacity-40 hidden md:block"
+                className="absolute bottom-[30%] right-[10%] w-16 h-16 border border-black/10 rounded-lg rotate-12 opacity-40 hidden md:block"
             />
             <motion.div
                 variants={floatVariants}
                 animate="animate"
-                className="absolute top-[15%] right-[25%] w-1.5 h-1.5 bg-white/30 rounded-full hidden md:block"
+                className="absolute top-[15%] right-[25%] w-1.5 h-1.5 bg-black/20 rounded-full hidden md:block"
             />
 
             {/* Main Content */}
@@ -98,11 +98,11 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-wrap items-baseline justify-center gap-x-4 mb-8"
                 >
-                    <h1 className="font-gilda text-5xl md:text-7xl lg:text-8xl tracking-tight text-white inline-flex items-baseline">
+                    <h1 className="font-gilda text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 inline-flex items-baseline">
                         {displayedName}
                         {/* Cursor only shows while typing, hidden after complete */}
                         {!typingComplete && (
-                            <span className="inline-block w-[3px] h-[0.7em] bg-white/70 ml-1 align-middle animate-pulse"></span>
+                            <span className="inline-block w-[3px] h-[0.7em] bg-black/70 ml-1 align-middle animate-pulse"></span>
                         )}
                     </h1>
                     <motion.span
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto mb-8"
+                    className="w-24 h-[1px] bg-gradient-to-r from-transparent via-black/10 to-transparent mx-auto mb-8"
                 />
 
                 {/* Role */}
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
-                    className="text-lg md:text-xl lg:text-2xl text-gray-400 font-light mb-10 leading-relaxed"
+                    className="text-lg md:text-xl lg:text-2xl text-gray-600 font-light mb-10 leading-relaxed"
                 >
                     Product Designer
                 </motion.h2>
@@ -141,12 +141,12 @@ const Hero: React.FC = () => {
                     className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-14 text-sm text-gray-500 tracking-wide"
                 >
                     <div className="flex items-center gap-2">
-                        <IoTimeOutline className="text-lg text-white/40" />
+                        <IoTimeOutline className="text-lg text-black/40" />
                         <span>5+ Years of Experience</span>
                     </div>
-                    <span className="hidden md:block w-1.5 h-1.5 bg-gray-700 rounded-full"></span>
+                    <span className="hidden md:block w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
                     <div className="flex items-center gap-2">
-                        <IoLocationOutline className="text-lg text-white/40" />
+                        <IoLocationOutline className="text-lg text-black/40" />
                         <span>Based in Ibadan, Nigeria</span>
                     </div>
                 </motion.div>
@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
                         <IoMailOutline className="text-lg group-hover:scale-110 transition-transform" />
                         Contact Me
                     </a>
-                    <a href="/resume.pdf" download className="group min-w-[180px] flex items-center justify-center gap-2 border border-white/15 bg-white/5 text-white text-sm font-medium py-4 px-10 rounded-full hover:bg-white/10 hover:border-white/30 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                    <a href="/resume.pdf" download className="group min-w-[180px] flex items-center justify-center gap-2 border border-black/10 bg-black/5 text-gray-900 text-sm font-medium py-4 px-10 rounded-full hover:bg-black/10 hover:border-black/20 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
                         <IoDownloadOutline className="text-lg group-hover:scale-110 transition-transform" />
                         Download My Resume
                     </a>
@@ -175,13 +175,13 @@ const Hero: React.FC = () => {
                     transition={{ delay: 2, duration: 1 }}
                     className="flex flex-col items-center gap-2"
                 >
-                    <span className="text-gray-600 text-xs tracking-widest uppercase">Scroll</span>
+                    <span className="text-gray-400 text-xs tracking-widest uppercase">Scroll</span>
                     <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-5 h-8 border border-gray-700 rounded-full flex justify-center pt-2"
+                        className="w-5 h-8 border border-gray-300 rounded-full flex justify-center pt-2"
                     >
-                        <div className="w-1 h-2 bg-gray-600 rounded-full"></div>
+                        <div className="w-1 h-2 bg-gray-400 rounded-full"></div>
                     </motion.div>
                 </motion.div>
             </div>
