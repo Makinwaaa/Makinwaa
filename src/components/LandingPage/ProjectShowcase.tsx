@@ -191,11 +191,11 @@ const ProjectShowcase: React.FC = () => {
                                                 <IoLockClosed className="text-[16px]" /> Read Case Study
                                             </span>
                                         ) : (
-                                            <a href="#" className="flex items-center text-gray-500 hover:text-gray-900 text-sm gap-1 font-medium transition-colors group/link relative">
+                                            <button type="button" className="flex items-center text-gray-500 hover:text-gray-900 text-sm gap-1 font-medium transition-colors group/link relative">
                                                 Read Case Study
                                                 <IoArrowForward className="ml-1 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
                                                 <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-gray-900 group-hover/link:w-full transition-all duration-300"></span>
-                                            </a>
+                                            </button>
                                         )
                                     )}
 

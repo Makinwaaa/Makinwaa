@@ -69,7 +69,7 @@ const DesignShowcase: React.FC = () => {
                 <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-xs font-medium text-gray-500 mb-6 shadow-sm">
                     • Design Showcase
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     Interface Explorations
                 </h2>
             </div>

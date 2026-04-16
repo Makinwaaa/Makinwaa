@@ -26,11 +26,18 @@ const NavBar: React.FC = () => {
 
     return (
         <nav className="fixed w-full z-50 top-0 left-0 bg-white/90 backdrop-blur-md text-gray-900 py-5 px-6 md:px-12 flex justify-between items-center border-b border-black/5">
-            {/* Logo */}
-            <div className="flex items-center">
+            {/* Logo (Desktop only) */}
+            <div className="hidden md:flex items-center">
                 <Link to="/" className="group">
                     <img src={PortLogo} alt="Makinwaa Logo" className="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity filter invert" />
                 </Link>
+            </div>
+
+            {/* Mobile Nav Toggle (Text-based, Left side) */}
+            <div className="md:hidden flex items-center">
+                <button onClick={toggleMenu} className="text-gray-900 font-semibold text-[15px]">
+                    {isMenuOpen ? 'close x' : '/menu'}
+                </button>
             </div>
 
             {/* Desktop Navigation */}
@@ -49,15 +56,15 @@ const NavBar: React.FC = () => {
                 </Link>
             </div>
 
-            {/* Social Icons (Replaces CTA) */}
-            <div className="hidden md:flex items-center gap-6">
+            {/* Social Icons (Mobile Top Nav - Right side, Desktop right) */}
+            <div className="flex items-center gap-5 md:gap-6">
                 {socialLinks.map((social, index) => (
                     <a
                         key={index}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-[#1A5CFF] transition-colors duration-300 text-xl"
+                        className="text-gray-900 hover:text-[#1A5CFF] transition-colors duration-300 text-xl"
                         aria-label={social.label}
                     >
                         <social.icon />
@@ -65,34 +72,13 @@ const NavBar: React.FC = () => {
                 ))}
             </div>
 
-            {/* Mobile Menu Icon */}
-            <div className="md:hidden">
-                <button onClick={toggleMenu} className="text-gray-900 focus:outline-none">
-                    {isMenuOpen ? <IoClose size={28} /> : <IoMenu size={28} />}
-                </button>
-            </div>
-
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-white flex flex-col items-center py-8 space-y-6 shadow-2xl md:hidden border-b border-black/5">
-                    <Link to="/" className={`${isActive('/')} text-xl font-medium hover:text-gray-900`} onClick={toggleMenu}>Home</Link>
-                    <Link to="/works" className={`${isActive('/works')} text-xl font-medium hover:text-gray-900`} onClick={toggleMenu}>Projects</Link>
-                    <Link to="/about" className={`${isActive('/about')} text-xl font-medium hover:text-gray-900`} onClick={toggleMenu}>About</Link>
-                    <Link to="/contact" className={`${isActive('/contact')} text-xl font-medium hover:text-gray-900`} onClick={toggleMenu}>Contact</Link>
-
-                    <div className="flex items-center gap-6 mt-4">
-                        {socialLinks.map((social, index) => (
-                            <a
-                                key={index}
-                                href={social.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-500 hover:text-[#1A5CFF] text-2xl transition-colors"
-                            >
-                                <social.icon />
-                            </a>
-                        ))}
-                    </div>
+                <div className="absolute top-full left-0 w-full bg-white flex flex-col items-start px-6 py-6 space-y-6 shadow-2xl md:hidden border-b border-black/5">
+                    <Link to="/" className={`${location.pathname === '/' ? 'text-gray-900 font-semibold' : 'text-gray-500 font-medium'} text-[15px] tracking-wide hover:text-gray-900 transition-colors capitalize`} onClick={toggleMenu}>Home</Link>
+                    <Link to="/works" className={`${location.pathname === '/works' ? 'text-gray-900 font-semibold' : 'text-gray-500 font-medium'} text-[15px] tracking-wide hover:text-gray-900 transition-colors capitalize`} onClick={toggleMenu}>Projects</Link>
+                    <Link to="/about" className={`${location.pathname === '/about' ? 'text-gray-900 font-semibold' : 'text-gray-500 font-medium'} text-[15px] tracking-wide hover:text-gray-900 transition-colors capitalize`} onClick={toggleMenu}>About</Link>
+                    <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-gray-900 font-semibold' : 'text-gray-500 font-medium'} text-[15px] tracking-wide hover:text-gray-900 transition-colors capitalize`} onClick={toggleMenu}>Contact</Link>
                 </div>
             )}
         </nav>

@@ -46,14 +46,9 @@ const testimonials = [
     }
 ];
 
-// Subtle background tints for each card (back side)
+// Single background tint for all cards (back side)
 const cardAccents = [
     { bg: '#F8F6F3', border: '#E8E3DB' },
-    { bg: '#F3F6F8', border: '#DBE3E8' },
-    { bg: '#F6F3F8', border: '#E3DBE8' },
-    { bg: '#F3F8F6', border: '#DBE8E3' },
-    { bg: '#F8F3F5', border: '#E8DBE0' },
-    { bg: '#F5F8F3', border: '#E0E8DB' },
 ];
 
 interface TestimonialCardProps {
@@ -172,7 +167,7 @@ const Testimonials: React.FC = () => {
                 <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-gray-50 shadow-sm text-xs font-medium text-gray-500 mb-6">
                     • Testimonials
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     What People Are Saying.
                 </h2>
             </div>
