@@ -7,7 +7,7 @@ const MakImage = require('./Asset/Mak.jpeg');
 
 const AboutSection: React.FC = () => {
     return (
-        <section className="bg-white text-gray-900 py-24 px-6 md:px-16 lg:px-24 overflow-hidden relative">
+        <section className="bg-white text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24 overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto relative z-10">
 
                 {/* Section Header - Left Aligned */}
@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
                 </motion.div>
 
                 {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
                     {/* Image Column (Left) */}
                     <motion.div
@@ -46,17 +46,10 @@ const AboutSection: React.FC = () => {
                             {/* Gradient Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
 
-                            {/* Floating Card Detail */}
                             <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md border border-white/10">
-                                <div className="flex justify-between items-end">
-                                    <div>
-                                        <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Based In</div>
-                                        <div className="text-white text-xl font-bold">Ibadan, Nigeria</div>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="text-[#1A5CFF] text-3xl font-bold">5+</div>
-                                        <div className="text-white/60 text-xs tracking-widest uppercase">Years Exp.</div>
-                                    </div>
+                                <div className="flex flex-col">
+                                    <div className="text-white/60 text-[10px] md:text-xs tracking-widest uppercase mb-1 md:mb-2">Based In</div>
+                                    <div className="text-white text-lg md:text-xl font-bold">Ibadan, Nigeria</div>
                                 </div>
                             </div>
                         </div>
@@ -71,11 +64,11 @@ const AboutSection: React.FC = () => {
                         className="lg:col-span-7 flex flex-col h-full"
                     >
                         {/* Bio Text */}
-                        <div className="mb-12">
-                            <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-8 leading-snug">
+                        <div className="mb-10">
+                            <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-6 leading-relaxed">
                                 I'm a <span className="text-[#1A5CFF] font-medium">Product Designer</span> who believes that great design is the bridge between a user's need and a business's goal.
                             </h3>
-                            <div className="space-y-6 text-gray-600 text-lg font-light leading-relaxed">
+                            <div className="space-y-5 text-gray-600 text-[15px] md:text-[16px] font-light leading-[1.8]">
                                 <p>
                                     With over 4 years of hands-on experience, I've partnered with startups and established
                                     brands to craft digital products that are not only visually stunning but strategically
@@ -88,20 +81,20 @@ const AboutSection: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-[1px] bg-gray-200 mb-12"></div>
+                        <div className="w-full h-[1px] bg-gray-100 mb-10"></div>
 
                         {/* Skills & Arsenal Section - Minimal Text Layout */}
-                        <div className="flex flex-col gap-12">
+                        <div className="flex flex-col gap-10">
 
                             {/* Skills Row */}
                             <div>
-                                <div className="text-sm font-mono text-gray-500 mb-6 tracking-widest">.skills</div>
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg md:text-xl text-gray-300 font-light">
+                                <div className="text-xs font-mono text-gray-400 mb-4 tracking-[0.2em] uppercase">.skills</div>
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm md:text-base text-gray-500 font-light">
                                     {["Design Strategy", "UX Research", "UI/UX Design", "Prototyping", "Interaction Design"].map((skill, index, array) => (
                                         <React.Fragment key={index}>
-                                            <span className="hover:text-gray-900 transition-colors cursor-default text-gray-600">{skill}</span>
+                                            <span className="hover:text-gray-900 transition-colors cursor-default">{skill}</span>
                                             {index !== array.length - 1 && (
-                                                <span className="text-gray-300 text-base">•</span>
+                                                <span className="text-gray-300">•</span>
                                             )}
                                         </React.Fragment>
                                     ))}

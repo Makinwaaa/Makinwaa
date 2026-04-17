@@ -44,7 +44,7 @@ const marqueeItems = [...mediaItems, ...mediaItems, ...mediaItems];
 
 const PersonalGallery: React.FC = () => {
     return (
-        <section className="bg-gray-50 text-gray-900 py-24 px-6 md:px-16 lg:px-24 overflow-hidden border-t border-gray-200">
+        <section className="bg-gray-50 text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24 overflow-hidden border-t border-gray-200">
             <div className="max-w-[1400px] mx-auto mb-16">
                 <div className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-medium text-gray-500 tracking-widest mb-6 shadow-sm">
                     • Lifestyle

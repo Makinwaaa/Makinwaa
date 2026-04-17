@@ -35,17 +35,36 @@ export default function Contact() {
 
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/amoriademakinwa@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    _subject: "New Message from Portfolio"
+                })
+            });
 
-        // Success handling
-        toast.success("Message sent successfully! I'll get back to you soon.");
-        setFormData({ name: '', email: '', message: '' });
-        setIsSubmitting(false);
+            if (response.ok) {
+                toast.success("Message sent successfully! I'll get back to you soon.");
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                toast.error("Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            toast.error("Network error. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
-        <section className="min-h-screen bg-gray-50 text-gray-900 pt-48 pb-20 relative overflow-hidden" style={{ fontFamily: '"Jost", sans-serif' }}>
+        <section className="min-h-screen bg-gray-50 text-gray-900 pt-32 md:pt-48 pb-16 md:pb-24 relative overflow-hidden" style={{ fontFamily: '"Jost", sans-serif' }}>
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-100/50 to-purple-100/40 rounded-full blur-[180px] pointer-events-none"></div>
 
@@ -73,7 +92,7 @@ export default function Contact() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="bg-white backdrop-blur-md p-8 md:p-10 rounded-3xl border border-gray-200 shadow-xl"
+                        className="bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-sm md:shadow-md"
                     >
                         <h2 className="text-2xl font-semibold mb-8">Send Me a Message</h2>
                         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -187,7 +206,7 @@ export default function Contact() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.9 }}
-                            className="mt-12 p-8 bg-white rounded-2xl border border-gray-200 shadow-md backdrop-blur-sm"
+                            className="mt-12 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm md:shadow-md"
                         >
                             <div className="flex items-center gap-3 mb-3">
                                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -217,11 +236,11 @@ const ContactItem = ({ icon, title, content, href, delay }: { icon: React.ReactN
         <div className="pt-1">
             <h3 className="text-sm font-medium text-gray-500 mb-1 uppercase tracking-wider">{title}</h3>
             {href ? (
-                <a href={href} className="text-xl text-gray-900 font-medium hover:text-blue-600 transition-colors">
+                <a href={href} className="text-[15px] md:text-lg text-gray-900 font-medium hover:text-blue-600 transition-colors break-all">
                     {content}
                 </a>
             ) : (
-                <p className="text-xl text-gray-900 font-medium">{content}</p>
+                <p className="text-[15px] md:text-lg text-gray-900 font-medium break-all">{content}</p>
             )}
         </div>
     </motion.div>

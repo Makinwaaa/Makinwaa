@@ -5,33 +5,30 @@ import { IoRibbonOutline } from 'react-icons/io5';
 const certifications = [
     {
         id: 1,
-        title: "Google UX Design Professional Certificate",
-        issuer: "Google",
-        date: "2023",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", // Placeholder or use icon
-        description: "Comprehensive training in the UX design process: empathizing with users, defining pain points, ideating solutions, creating wireframes and prototypes, testing and iterating on designs."
+        title: "UX Designer: Visual/UI Design",
+        issuer: "EntryLevel",
+        date: "2024",
+        description: "Focusing on the visual aspects of digital products, mastering color theory, typography, and high-fidelity interface design. Credential ID: 9142d8c5-0ab6-4976-9d84-e8e0856cf6f4"
     },
     {
         id: 2,
-        title: "Human-Computer Interaction",
-        issuer: "Interaction Design Foundation (IxDF)",
-        date: "2022",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Interaction_Design_Foundation_logo.png/600px-Interaction_Design_Foundation_logo.png",
-        description: "Deep dive into HCI principles, focusing on how computer technology should be designed for human interaction."
+        title: "UX Design Fundamentals",
+        issuer: "EntryLevel",
+        date: "2023",
+        description: "Mastering the core principles of user experience design, from user research and wireframing to prototyping and usability testing. Credential ID: a33d71eb-c8e9-449d-ac3c-4723497b89c0"
     },
     {
         id: 3,
-        title: "Advanced React Patterns",
-        issuer: "Frontend Masters",
-        date: "2024",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-        description: "Mastering advanced React concepts, including render props, higher-order components, and state reducer patterns."
+        title: "BSc Computer Science & IT",
+        issuer: "Bowen University Iwo",
+        date: "2022",
+        description: "Studied Computer Science and Information Technology, building a strong technical foundation in software principles and complex systems."
     }
 ];
 
 const Certifications: React.FC = () => {
     return (
-        <section className="bg-white text-gray-900 py-24 px-6 md:px-16 lg:px-24">
+        <section className="bg-white text-gray-900 py-16 md:py-24 px-6 md:px-16 lg:px-24">
             <div className="max-w-[1400px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

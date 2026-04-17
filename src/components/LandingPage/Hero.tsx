@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { IoLocationOutline, IoTimeOutline, IoMailOutline, IoDownloadOutline } from 'react-icons/io5';
+import { IoLocationOutline, IoTimeOutline, IoMailOutline, IoDocumentTextOutline } from 'react-icons/io5';
 
 const Hero: React.FC = () => {
     const fullName = "Makinwa Amori";
@@ -162,9 +162,9 @@ const Hero: React.FC = () => {
                         <IoMailOutline className="text-lg group-hover:scale-110 transition-transform" />
                         Contact Me
                     </a>
-                    <a href="/resume.pdf" download className="group min-w-[180px] flex items-center justify-center gap-2 border border-black/10 bg-black/5 text-gray-900 text-sm font-medium py-4 px-10 rounded-full hover:bg-black/10 hover:border-black/20 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
-                        <IoDownloadOutline className="text-lg group-hover:scale-110 transition-transform" />
-                        Download My Resume
+                    <a href="/resume" className="group min-w-[180px] flex items-center justify-center gap-2 border border-black/10 bg-black/5 text-gray-900 text-sm font-medium py-4 px-10 rounded-full hover:bg-black/10 hover:border-black/20 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                        <IoDocumentTextOutline className="text-lg group-hover:scale-110 transition-transform" />
+                        Read My Resume
                     </a>
                 </motion.div>
 

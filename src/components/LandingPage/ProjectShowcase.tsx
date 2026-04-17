@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoArrowForward, IoLockClosed } from 'react-icons/io5';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const allProjects = [
     {
@@ -13,7 +14,8 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: false,
-        liveUrl: null,
+        liveUrl: "#",
+        slug: "cribly",
     },
     {
         id: 2,
@@ -24,7 +26,7 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: true,
-        liveUrl: null,
+        liveUrl: "#",
     },
     {
         id: 3,
@@ -35,7 +37,8 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: false,
-        liveUrl: null,
+        liveUrl: "#",
+        slug: "proton-collections",
     },
     {
         id: 4,
@@ -46,7 +49,8 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: false,
-        liveUrl: null,
+        liveUrl: "#",
+        slug: "cride",
     },
     {
         id: 5,
@@ -57,7 +61,7 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: true,
-        liveUrl: null,
+        liveUrl: "#",
     },
     {
         id: 6,
@@ -68,7 +72,7 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: true,
-        liveUrl: null,
+        liveUrl: "#",
     },
     {
         id: 7,
@@ -79,29 +83,31 @@ const allProjects = [
         image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1974&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: false,
-        liveUrl: null,
+        liveUrl: "#",
+        slug: "hr-system",
     },
     {
         id: 8,
         title: "Lease2earn",
         year: "2025",
-        category: "Mobile Application",
+        category: "Web Application",
         description: "I brought Lease2earn to life—a peer-to-peer car-sharing app. I designed the platform to make it incredibly easy for users to securely lease out their idle vehicles for passive income.",
         image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: true,
-        liveUrl: null,
+        liveUrl: "#",
     },
     {
         id: 9,
         title: "DokRx",
-        year: "2022",
-        category: "Mobile Application",
+        year: "2023",
+        category: "Web Application",
         description: "I designed DokRx, a telemedicine platform born out of necessity during the pandemic. I crafted an accessible interface allowing patients to comfortably book virtual appointments from home.",
         image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
         hasCaseStudy: true,
         ndaLocked: false,
-        liveUrl: null,
+        liveUrl: "#",
+        slug: "dokrx",
     }
 ];
 
@@ -191,11 +197,11 @@ const ProjectShowcase: React.FC = () => {
                                                 <IoLockClosed className="text-[16px]" /> Read Case Study
                                             </span>
                                         ) : (
-                                            <button type="button" className="flex items-center text-gray-500 hover:text-gray-900 text-sm gap-1 font-medium transition-colors group/link relative">
+                                            <Link to={`/works/${project.slug}`} className="flex items-center text-gray-500 hover:text-gray-900 text-sm gap-1 font-medium transition-colors group/link relative">
                                                 Read Case Study
                                                 <IoArrowForward className="ml-1 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
                                                 <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-gray-900 group-hover/link:w-full transition-all duration-300"></span>
-                                            </button>
+                                            </Link>
                                         )
                                     )}
 

@@ -2,7 +2,9 @@ import Home from "pages/LandingPage/Home";
 import RouteNotFound from "pages/RouteNotFound";
 import Contact from "pages/LandingPage/Contact";
 import About from "pages/LandingPage/About";
-
+import Resume from "pages/LandingPage/Resume";
+import Portfolio from "pages/LandingPage/Portfolio";
+import CaseStudy from "pages/LandingPage/CaseStudy";
 
 export interface routeInterface {
     path: string;
@@ -41,6 +43,24 @@ const landingPageRoutes: routeInterface = {
             name: "About",
             header: "About",
             component: About
+        },
+        {
+            path: "/resume",
+            name: "Resume",
+            header: "Resume",
+            component: Resume
+        },
+        {
+            path: "/works",
+            name: "Works",
+            header: "Works",
+            component: Portfolio
+        },
+        {
+            path: "/works/:slug",
+            name: "Case Study",
+            header: "Case Study",
+            component: CaseStudy
         }
     ]
 }

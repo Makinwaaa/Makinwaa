@@ -13,8 +13,8 @@ const CTAFooter: React.FC = () => {
     // Email
     const email = "amoriademakinwa@gmail.com";
 
-    // Resume Link (Placeholder)
-    const resumeLink = "#";
+    // Resume Link
+    const resumeLink = "/resume";
 
     return (
         <section className="bg-gradient-to-t from-gray-50 to-white text-gray-900 py-24 px-6 md:px-16 lg:px-24 relative overflow-hidden">
@@ -78,11 +78,10 @@ const CTAFooter: React.FC = () => {
                     </a>
                     <a
                         href={resumeLink}
-                        download
                         className="flex items-center gap-2 border border-gray-300 text-gray-800 font-medium py-3 px-6 rounded-full hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 text-sm"
                     >
                         <IoDocumentTextOutline className="text-lg" />
-                        Download Resume
+                        Read my Resume
                     </a>
                 </motion.div>
 
@@ -122,9 +121,9 @@ const CTAFooter: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-5">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">LinkedIn</a>
-                        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Dribbble</a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">GitHub</a>
+                        <a href="https://www.linkedin.com/in/ademakinwaa/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">LinkedIn</a>
+                        <a href="https://dribbble.com/Designsbymak" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Dribbble</a>
+                        <a href="https://github.com/Makinwaaa" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">GitHub</a>
                     </div>
 
                     <span>© {currentYear} Makinwaa</span>

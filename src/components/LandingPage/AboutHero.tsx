@@ -28,7 +28,7 @@ const AboutHero: React.FC = () => {
     };
 
     return (
-        <section className="relative min-h-[85vh] bg-white text-gray-900 flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 pt-32 md:pt-40 overflow-hidden pb-16">
+        <section className="relative min-h-[85vh] bg-white text-gray-900 flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 pt-24 md:pt-40 overflow-hidden pb-12 md:pb-16">
             {/* Background Texture/Noise Overlay */}
             <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 

@@ -18,10 +18,10 @@ const NavBar: React.FC = () => {
     };
 
     const socialLinks = [
-        { icon: IoLogoLinkedin, url: "#", label: "LinkedIn" },
-        { icon: IoLogoDribbble, url: "#", label: "Dribbble" },
-        { icon: IoLogoBehance, url: "#", label: "Behance" },
-        { icon: IoLogoWhatsapp, url: "#", label: "WhatsApp" },
+        { icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/ademakinwaa/", label: "LinkedIn" },
+        { icon: IoLogoDribbble, url: "https://dribbble.com/Designsbymak", label: "Dribbble" },
+        { icon: IoLogoBehance, url: "https://www.behance.net/ademakinwaa", label: "Behance" },
+        { icon: IoLogoWhatsapp, url: "https://wa.me/2348159225460", label: "WhatsApp" },
     ];
 
     return (
